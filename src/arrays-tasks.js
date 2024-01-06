@@ -36,15 +36,23 @@ function getIntervalArray(start, end) {
  *
  * @param {array} arr1 - The first array.
  * @param {array} arr2 - The second array.
- * @return {array} - An array containing the sum of corresponding elements.
+ * @return {array} - An array containing the sum of correponding elements.
  *
  * @example
  *    sumArrays([1, 2, 3], [4, 5, 6]) => [5, 7, 9]
  *    sumArrays([10, 20, 30], [5, 10, 15]) => [15, 30, 45]
  *    sumArrays([-1, 0, 1], [1, 2, 3, 4]) => [0, 2, 4, 4]
  */
-function sumArrays(/* arr1, arr2 */) {
-  throw new Error('Not implemented');
+function sumArrays(arr1, arr2) {
+  function summArr(mas1, mas2) {
+    return mas1.map((el, index) => {
+      return mas2[index] ? el + mas2[index] : el;
+    });
+  }
+  const res =
+    arr1.length > arr2.length ? summArr(arr1, arr2) : summArr(arr2, arr1);
+
+  return res;
 }
 
 /**
@@ -66,6 +74,8 @@ function findElement(arr, value) {
 /**
  * Returns a number of all occurrences of the specified item in an array.
  *
+ * Возвращает количество всех вхождений указанного элемента в массив.
+ *
  * @param {array} arr - The input array.
  * @param {any} item - Element to search.
  * @return {number} - Number of found items.
@@ -77,8 +87,10 @@ function findElement(arr, value) {
  *    findAllOccurrences([ null, undefined, null ], null) => 2
  *    findAllOccurrences([ true, 0, 1, 'true' ], true) => 1
  */
-function findAllOccurrences(/* arr, item */) {
-  throw new Error('Not implemented');
+function findAllOccurrences(arr, item) {
+  return arr.reduce((currentValue, el) => {
+    return el === item ? currentValue + 1 : currentValue;
+  }, 0);
 }
 
 /**
@@ -115,6 +127,9 @@ function getStringsLength(arr) {
  * Returns the average of all items in the specified array of numbers.
  * The result should be rounded to two decimal places.
  *
+ * Возвращает среднее значение всех элементов в указанном массиве чисел.
+ * Результат следует округлить до двух десятичных знаков.
+ *
  * @param {array} arr - The input array
  * @return {number} - The average of all items
  *
@@ -125,12 +140,18 @@ function getStringsLength(arr) {
  *   getAverage([ 1, 10, 100, 1000 ])  => 277,75
  *   getAverage([ 2, 3, 3 ])  => 2,67
  */
-function getAverage(/* arr */) {
-  throw new Error('Not implemented');
+function getAverage(arr) {
+  if (arr.length === 0) {
+    return 0;
+  }
+  const sum = arr.reduce((total, item) => total + item);
+  return parseFloat((sum / arr.length).toFixed(2));
 }
 
 /**
  * Checks if all strings in an array have the same length.
+ *
+ * Проверяет, имеют ли все строки в массиве одинаковую длину.
  *
  * @param {array} arr - The array of strings to be checked.
  * @return {boolean} - True if all strings have the same length, false otherwise.
@@ -139,12 +160,15 @@ function getAverage(/* arr */) {
  *    isSameLength(['orange', 'banana', 'cherry']) => true
  *    isSameLength(['cat', 'dog', 'elephant']) => false
  */
-function isSameLength(/* arr */) {
-  throw new Error('Not implemented');
+function isSameLength(arr) {
+  const num = arr[0].length;
+  return arr.every((el) => el.length === num);
 }
 
 /**
  * Checks if there are elements in the array where the value is equal to its index.
+ *
+ * Проверяет, есть ли в массиве элементы, значение которых равно его индексу.
  *
  * @param {array} arr - The array of elements to be checked.
  * @return {boolean} - True if there are elements with value equal to their index, false otherwise.
@@ -154,8 +178,8 @@ function isSameLength(/* arr */) {
  *    isValueEqualsIndex([2, 1, 0, 4, 5]) => true
  *    isValueEqualsIndex([10, 20, 30, 40, 50]) => false
  */
-function isValueEqualsIndex(/* arr */) {
-  throw new Error('Not implemented');
+function isValueEqualsIndex(arr) {
+  return arr.some((el, index) => el === index);
 }
 
 /**
