@@ -440,6 +440,7 @@ function getFalsyValuesCount(arr) {
 
 /**
  * Creates an identity matrix of the specified size.
+ * Создает идентификационную матрицу заданного размера.
  *
  * @param {number} n - A size of the matrix.
  * @return {array} - An identity matrix.
@@ -456,12 +457,17 @@ function getFalsyValuesCount(arr) {
  *                              [0,0,0,1,0],
  *                              [0,0,0,0,1]]
  */
-function getIdentityMatrix(/* n */) {
-  throw new Error('Not implemented');
+function getIdentityMatrix(n) {
+  return Array.from(Array(n), (v, k) => {
+    return Array.from(Array(n), (x, index) => {
+      return k === index ? 1 : 0;
+    });
+  });
 }
 
 /**
  * Returns an array containing indices of odd elements in the input array.
+ * Возвращает массив, содержащий индексы нечетных элементов во входном массиве.
  *
  * @param {array} numbers - The array of numbers.
  * @return {array} - An array containing indices of odd elements.
@@ -471,8 +477,11 @@ function getIdentityMatrix(/* n */) {
  *    getIndicesOfOddNumbers([2, 4, 6, 8, 10]) => []
  *    getIndicesOfOddNumbers([11, 22, 33, 44, 55]) => [0, 2, 4]
  */
-function getIndicesOfOddNumbers(/* numbers */) {
-  throw new Error('Not implemented');
+function getIndicesOfOddNumbers(numbers) {
+  const indexArr = numbers.map((el, i) => {
+    return el % 2 !== 0 ? i : null;
+  });
+  return indexArr.filter((el) => el !== null);
 }
 
 /**
