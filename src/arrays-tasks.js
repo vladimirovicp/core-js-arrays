@@ -406,6 +406,7 @@ function generateOdds(len) {
 
 /**
  * Returns an element from the multidimensional array by the specified indices.
+ * Возвращает элемент из многомерного массива по указанным индексам.
  *
  * @param {array} arr - The input multidimensional array
  * @param {array} indices - The array of indices
@@ -416,12 +417,13 @@ function generateOdds(len) {
  *   getElementByIndices(['one','two','three'], [2]) => 'three'  (arr[2])
  *   getElementByIndices([[[ 1, 2, 3]]], [ 0, 0, 1 ]) => 2        (arr[0][0][1])
  */
-function getElementByIndices(/* arr, indices */) {
-  throw new Error('Not implemented');
+function getElementByIndices(arr, indices) {
+  return indices.reduce((obj, prop) => obj[prop], arr);
 }
 
 /**
  * Returns the number of all falsy values in the specified array.
+ * Возвращает количество всех ложных значений в указанном массиве.
  *
  * @param {array} arr - The input array.
  * @return {number} - The number of all falsy values.
@@ -432,8 +434,8 @@ function getElementByIndices(/* arr, indices */) {
  *  getFalsyValuesCount([ -1, 'false', null, 0 ]) => 2
  *  getFalsyValuesCount([ null, undefined, NaN, false, 0, '' ]) => 6
  */
-function getFalsyValuesCount(/* arr */) {
-  throw new Error('Not implemented');
+function getFalsyValuesCount(arr) {
+  return arr.reduce((res, el) => (Boolean(el) === false ? res + 1 : res), 0);
 }
 
 /**
