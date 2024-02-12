@@ -494,12 +494,17 @@ function getIndicesOfOddNumbers(numbers) {
  *    getHexRGBValues([ 0, 255, 16777215]) => [ '#000000', '#0000FF', '#FFFFFF' ]
  *    getHexRGBValues([]) => []
  */
-function getHexRGBValues(/* arr */) {
-  throw new Error('Not implemented');
+function getHexRGBValues(arr) {
+  return arr.map((el) => {
+    const hex = el.toString(16);
+    const hexRes = hex.toUpperCase().padStart(6, 0);
+    return '#'.concat(hexRes);
+  });
 }
 
 /**
  * Returns the n largest values from the specified array
+ * Возвращает n наибольших значений из указанного массива
  *
  * @param {array} arr - The input array
  * @param {number} n - Number of maximum values.
