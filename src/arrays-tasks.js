@@ -528,6 +528,7 @@ function getMaxItems(arr, n) {
 
 /**
  * Finds and returns an array containing only the common elements found in two arrays.
+ * Находит и возвращает массив, содержащий только общие элементы, найденные в двух массивах.
  *
  * @param {array} arr1 - The first array.
  * @param {array} arr2 - The second array.
@@ -538,8 +539,9 @@ function getMaxItems(arr, n) {
  *    findCommonElements(['a', 'b', 'c'], ['b', 'c', 'd']) => [ 'b', 'c' ]
  *    findCommonElements([1, 2, 3], ['a', 'b', 'c']) => []
  */
-function findCommonElements(/* arr1, arr2 */) {
-  throw new Error('Not implemented');
+function findCommonElements(arr1, arr2) {
+  const result = arr1.filter((el) => arr2.includes(el));
+  return result;
 }
 
 /**
