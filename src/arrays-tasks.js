@@ -546,6 +546,7 @@ function findCommonElements(arr1, arr2) {
 
 /**
  * Finds the length of the longest increasing subsequence of a given array of integers.
+ * Находит длину самой длинной возрастающей последовательности заданного массива целых чисел.
  *
  * @param {array} nums - The array of integers.
  * @return {number} - The length of the longest increasing subsequence.
