@@ -577,6 +577,9 @@ function findLongestIncreasingSubsequence(nums) {
  * Propagates every item in sequence its position times
  * Returns an array that consists of: one first item, two second items, three third items etc.
  *
+ * Распространяет каждый элемент последовательно по времени его позиции.
+ * Возвращает массив, состоящий из: одного первого элемента, двух вторых элементов, трех третьих элементов и т. д.
+ *
  * @param {array} arr - The input array
  * @return {array}
  *
